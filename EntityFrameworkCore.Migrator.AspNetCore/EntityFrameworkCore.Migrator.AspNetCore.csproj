@@ -9,7 +9,6 @@
     <Copyright>Copyright 2023 @ ezpz</Copyright>
     <PackageId>EntityFrameworkCore.Migrator.AspNetCore</PackageId>
 		<PackageVersion>6.0.0</PackageVersion>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://ezpz.code/migrator</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ezpz-codes/EntityFrameworkCore.Migrator.AspNetCore</RepositoryUrl>
