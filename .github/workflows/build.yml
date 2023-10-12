@@ -31,4 +31,4 @@ jobs:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
       - name: Push generated package to Nuget
-        run: nuget push EntityFrameworkCore.Migrator.AspNetCore\out\*.nupkg -SkipDuplicate -NoSymbols -Source https://api.nuget.org/v3/index.json
+        run: nuget push EntityFrameworkCore.Migrator.AspNetCore/out/*.nupkg -SkipDuplicate -NoSymbols -Source https://api.nuget.org/v3/index.json
