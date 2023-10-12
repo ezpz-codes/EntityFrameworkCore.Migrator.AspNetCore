@@ -1,0 +1,64 @@
+﻿@page "/Migrator/Live"
+@model EntityFrameworkCore.Migrator.AspNetCore.Pages.LiveModel
+@{
+    ViewBag.Title = "Live migration";
+    Layout = "_MigratorLayout";
+}
+
+@if (Model.InfoMessage is not null)
+{
+    <div class="__migrator-info">
+        @Model.InfoMessage
+    </div>
+
+    <br />
+}
+
+@if (Model.WarningMessage is not null)
+{
+    <div class="__migrator-warning">
+        @Model.WarningMessage
+    </div>
+
+    <br />
+}
+
+@if (Model.SuccessMessage is not null)
+{
+    <div class="__migrator-success">
+        @Model.SuccessMessage
+    </div>
+
+    <br />
+
+    <a href="/Migrator" class="__migrator-button">Home</a>
+}
+
+@if (Model.ErrorMessage is not null)
+{
+    <div class="__migrator-error">
+        @Model.ErrorMessage
+    </div>
+
+    <br />
+
+    <a href="/Migrator" class="__migrator-button">Home</a>
+}
+
+@if (Model.SuccessMessage is null && Model.ErrorMessage is null)
+{
+    if (string.IsNullOrWhiteSpace(ViewBag.Script))
+    {
+        <p>There is nothing to migrate.</p>
+    }
+    else
+    {
+        <form method="post">
+            <div class="__migrator-actions">
+                <button type="submit" class="__migrator-button">Run</button>
+            </div>
+
+            <textarea name="script" readonly class="__migrator-textarea" rows="50">@ViewBag.script</textarea>
+        </form>
+    }
+}

@@ -1,0 +1,63 @@
+﻿@page "/Migrator/Migrations"
+@model EntityFrameworkCore.Migrator.AspNetCore.Pages.MigrationsModel
+@{
+    ViewBag.Title = "Migrations";
+    Layout = "_MigratorLayout";
+
+    var appliedMigrations = (IEnumerable<string>)ViewBag.appliedMigrations;
+    var pendingMigrations = (IEnumerable<string>)ViewBag.pendingMigrations;
+    var currentMigration = appliedMigrations.LastOrDefault();
+}
+
+<h2>Applied migrations</h2>
+
+<ul class="__migrator-migrations-list">
+    <li>
+        @if (currentMigration is null)
+        {
+            <a title="This is the current migration">Select migration</a>
+        }
+        else
+        {
+            <a href="/Migrator/Migrations/0">Select migration</a>
+        }
+
+        <span>Empty database</span>
+    </li>
+
+    @foreach (var migration in appliedMigrations)
+    {
+        <li>
+            @if (migration == currentMigration)
+            {
+                <a title="This is the current migration">Select migration</a>
+            }
+            else
+            {
+                <a href="/Migrator/Migrations/@migration">Select migration</a>
+            }
+
+            <span>@migration</span>
+        </li>
+    }
+</ul>
+
+<h2>Pending migrations</h2>
+
+@if (pendingMigrations.Any())
+{
+    <ul class="__migrator-migrations-list">
+        @foreach (var migration in pendingMigrations)
+        {
+            <li>
+                <a href="/Migrator/Migrations/@migration">Select migration</a>
+
+                <span>@migration</span>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No migrations to show.</p>
+}

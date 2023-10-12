@@ -1,0 +1,9 @@
+﻿@page "/Migrator"
+@model EntityFrameworkCore.Migrator.AspNetCore.Pages.HomeModel
+@inject EntityFrameworkCoreMigratorOptions Options
+@{
+    ViewBag.Title = Options.HomeTitle;
+    Layout = "_MigratorLayout";
+}
+
+<p>@Options.HomeText</p>

@@ -1,0 +1,54 @@
+﻿@inject EntityFrameworkCoreMigratorOptions Options
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - @Options.Title</title>
+
+    <link rel="stylesheet" href="/_content/EntityFrameworkCore.Migrator.AspNetCore/migrator.css" />
+</head>
+<body>
+    <header class="__migration-header">
+        <nav class="__migrator-nav __migrator-container">
+            <ul>
+                <li>
+                    <a href="/Migrator">@Options.Title</a>
+                </li>
+
+                @if (Options.ShowMigrations)
+                {
+                    <li>
+                        <a href="/Migrator/Migrations">Migrations</a>
+                    </li>                    
+                }
+
+                @if (Options.ShowLiveMigration)
+                {
+                    <li>
+                        <a href="/Migrator/Live">Live migration</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </header>
+
+    <main class="__migrator-main">
+        <div class="__migrator-container">
+            @if (!Options.IsSecuritySet)
+            {
+                <br />
+
+                <div class="__migrator-warning">
+                    Authorization is not set for the migrator. It will work in development, but not in production. To set up authorization, you can set RestrictToRoles or AuthroizationMethod in configuration options.
+                </div>
+            }
+
+            <h1>@ViewBag.Title</h1>
+
+            @RenderBody()
+        </div>
+    </main>
+</body>
+</html>

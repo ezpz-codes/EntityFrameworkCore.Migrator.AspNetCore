@@ -1,0 +1,39 @@
+﻿@page "/Migrator/Migrations/{id}"
+@model EntityFrameworkCore.Migrator.AspNetCore.Pages.MigrationsScriptModel
+@{
+    ViewBag.Title = $"Migration {RouteData.Values["id"]}";
+    Layout = "_MigratorLayout";
+}
+
+@if (Model.SuccessMessage is not null)
+{
+    <div class="__migrator-success">
+        @Model.SuccessMessage
+    </div>
+
+    <br />
+
+    <a href="/Migrator/Migrations" class="__migrator-button">Migrations</a>
+}
+
+@if (Model.ErrorMessage is not null)
+{
+    <div class="__migrator-error">
+        @Model.ErrorMessage
+    </div>
+
+    <br />
+
+    <a href="/Migrator/Migrations" class="__migrator-button">Migrations</a>
+}
+
+@if (Model.SuccessMessage is null && Model.ErrorMessage is null)
+{
+    <form method="post" asp-route-id="@RouteData.Values["id"]">
+        <div class="__migrator-actions">
+            <button type="submit" class="__migrator-button">Migrate</button>
+        </div>
+
+        <textarea readonly class="__migrator-textarea" rows="50">@ViewData["script"]</textarea>
+    </form>
+}
