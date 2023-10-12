@@ -1,0 +1,35 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3
+
+      - name: Pack NuGet packages (Release versions)
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: dotnet pack -c Release -o out
+
+      - name: Upload artifacts
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-artifact@v3
+        with:
+          name: EntityFrameworkCore.Migrator.AspNetCore
+          path: out
+
+      - name: Setup nuget
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Push generated package to Nuget
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: nuget push EntityFrameworkCore.Migrator.AspNetCore\out\*.nupkg -SkipDuplicate -NoSymbols -Source https://api.nuget.org/v3/index.json
