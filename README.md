@@ -1,4 +1,4 @@
-![Nuget](https://img.shields.io/nuget/v/EntityFrameworkCore.Migrator.AspNetCore)
+![Nuget](https://img.shields.io/nuget/v/EntityFrameworkCore.Migrator.AspNetCore) 
 
 # UI for managing EF Core migrations
 
