@@ -8,7 +8,7 @@
     <Authors>ezpz-codes</Authors>
     <Copyright>Copyright 2023 @ ezpz</Copyright>
     <PackageId>EntityFrameworkCore.Migrator.AspNetCore</PackageId>
-		<PackageVersion>6.0.23</PackageVersion>
+		<PackageVersion>7.0.0</PackageVersion>
     <PackageProjectUrl>https://ezpz.code/migrator</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ezpz-codes/EntityFrameworkCore.Migrator.AspNetCore</RepositoryUrl>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
