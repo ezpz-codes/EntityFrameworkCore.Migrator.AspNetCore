@@ -2,8 +2,8 @@ name: Build
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - v*.*.*
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v3
 
-      - name: Pack NuGet packages (Release versions)
+      - name: Pack NuGet package
         run: dotnet pack -c Release -o ./dist/
 
       - name: Publish to NuGet

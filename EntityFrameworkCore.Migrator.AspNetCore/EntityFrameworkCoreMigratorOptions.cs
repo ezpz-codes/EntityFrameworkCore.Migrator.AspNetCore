@@ -82,4 +82,14 @@ public class EntityFrameworkCoreMigratorOptions
     /// This parameter cold be useful if there is a need for filter certain operations or adding new ones.
     /// </summary>
     public Func<IServiceProvider, IReadOnlyList<MigrationOperation>, IModel, IModel, Task<IReadOnlyList<MigrationOperation>>>? GetMigrationOperations { get; set; }
+
+    /// <summary>
+    /// Tables to include in generating the live database model in live migration. If null or empty, all tables are included. Default value: <see langword="null"/>.
+    /// </summary>
+    public IEnumerable<string>? LiveMigrationTables { get; set; }
+
+    /// <summary>
+    /// Schemas to include in generating the live database model in live migration. If null or empty, all schemas are included. Default value: <see langword="null"/>.
+    /// </summary>
+    public IEnumerable<string>? LiveMigrationSchemas { get; set; }
 }

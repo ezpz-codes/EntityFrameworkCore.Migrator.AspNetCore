@@ -62,7 +62,9 @@ public class LiveModel : PageModel
         var migrationsModelDiffer = serviceProvider.GetService<IMigrationsModelDiffer>()!;
         var migrationsSqlGenerator = serviceProvider.GetService<IMigrationsSqlGenerator>()!;
 
-        var databaseModel = databaseModelFactory.Create(context.Database.GetConnectionString()!, new DatabaseModelFactoryOptions());
+        var databaseModel = databaseModelFactory.Create(
+            context.Database.GetConnectionString()!, 
+            new DatabaseModelFactoryOptions(_options.LiveMigrationTables, _options.LiveMigrationSchemas));
 
         var liveModel = scaffoldingModelFactory.Create(databaseModel, new ModelReverseEngineerOptions());
         var codeModel = context.GetService<IDesignTimeModel>().Model;
