@@ -37,12 +37,18 @@ var app = builder.Build();
 
 // ...
 
+app.UseStaticFiles();
+
+// ...
+
 app.MapRazorPages();
 
 // ...
 
 app.Run();
 ```
+
+Then you can navigate to `/Migrator` to access the UI.
 
 ### Authorization
 
@@ -66,7 +72,3 @@ builder.Services.AddEntityFrameworkCoreMigrator<TestDbContext>(options =>
     };
 });
 ```
-
-## Versioning
-
-The versioning of the package follows the versioning of EntityFrameworkCore package.
