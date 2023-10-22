@@ -2,7 +2,9 @@
 
 # UI for managing EF Core migrations
 
-Tool that provides you a UI to make your migration management a little bit easier.
+Tool that provides you a UI to make your migration management a little bit easier.  
+
+**For detailed documentation, please visit [https://ezpz.codes/efcore-migrator](ezpz.codes).**
 
 ## Migration management
 
