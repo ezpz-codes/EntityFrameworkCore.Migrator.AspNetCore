@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Authors>ezpz-codes</Authors>
     <Copyright>Copyright 2023 @ ezpz</Copyright>
     <PackageId>EntityFrameworkCore.Migrator.AspNetCore</PackageId>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>1.0.1</PackageVersion>
     <PackageProjectUrl>https://ezpz.codes/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ezpz-codes/EntityFrameworkCore.Migrator.AspNetCore</RepositoryUrl>
@@ -20,6 +20,7 @@
   <ItemGroup>
     <PackageReference Condition="'$(TargetFramework)' == 'net6.0'" Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0" />
     <PackageReference Condition="'$(TargetFramework)' == 'net7.0'" Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0" />
+    <PackageReference Condition="'$(TargetFramework)' == 'net8.0'" Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
